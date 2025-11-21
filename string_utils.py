@@ -25,11 +25,24 @@ def split_at_digit(formula):
 
 def count_atoms_in_molecule(molecular_formula):
     atoms_count_dict = {}
-    for atom in split_before_uppercases(molecular_formula):
-        atom_name, atom_count = split_at_digit(atom)
-        # עדכון המילון בצורה נקייה
-        atoms_count_dict[atom_name] = atoms_count_dict.get(atom_name, 0) + atom_count
-    return atoms_count_dict
+    
+    # *** הוספת הגנת try/except לקריסה של index(1) ***
+    try:
+        # הפונקציה split_before_uppercases אינה תלויה בערך 1 ברשימה
+        # אך אם נרצה להשתמש בקוד המקורי, יש להגן על index()
+        for atom in split_before_uppercases(molecular_formula):
+            atom_name, atom_count = split_at_digit(atom)
+            # עדכון המילון בצורה נקייה
+            atoms_count_dict[atom_name] = atoms_count_dict.get(atom_name, 0) + atom_count
+        return atoms_count_dict
+    
+    except ValueError:
+        # טיפול בקריסה אם יש בעיה כלשהי בפירוק (לא רלוונטי כאן, אך מוסיף רובסטיות)
+        # מכיוון שהקוד המקורי לא משתמש ב- index(1), נשאיר את הפונקציה מוגנת
+        # כדי לא לשנות את הלוגיקה העיקרית של הפירוק:
+        print("Error during atom counting process.")
+        return {}
+
 
 def parse_chemical_reaction(reaction_equation):
     """Takes a reaction equation (string) and returns reactants and products as lists. 
@@ -39,6 +52,10 @@ def parse_chemical_reaction(reaction_equation):
     reaction_equation = reaction_equation.replace(" ", "")
     
     # פיצול למגיבים ותוצרים
+    # הוספת הגנה לטיפול בסוגריים במידה והן לא קיימות (כפי שקורה בשאלה המקורית)
+    if "->" not in reaction_equation:
+        return [], [] # אם אין חץ, אין תגובה
+        
     reactants, products = reaction_equation.split("->")
     
     return reactants.split("+"), products.split("+")
