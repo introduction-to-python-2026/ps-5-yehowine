@@ -6,8 +6,6 @@ def split_before_uppercases(formula):
 
     if not formula:
         return elements_lst
-
-    # לולאה על המחרוזת החל מהאינדקס השני
     while end < len(formula):
         if formula[end].isupper():
             elements_lst.append(formula[start:end])
@@ -25,7 +23,6 @@ def split_at_digit(formula):
             # מפריד שם (עד הספרה) וכמות (החל מהספרה)
             return formula[:char_index], int(formula[char_index:])
     return formula, 1
-
 def count_atoms_in_molecule(molecular_formula):
     atoms_count_dict = {}
     
