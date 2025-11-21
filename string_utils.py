@@ -1,8 +1,8 @@
-def split_before_uppercases(formula):
+def split_before_each_uppercases(formula):
     start = 0
     end = 1
     elements_lst = []
-    
+
     if not formula:
         return elements_lst
 
@@ -10,10 +10,10 @@ def split_before_uppercases(formula):
         if formula[end].isupper():
             elements_lst.append(formula[start:end])
             start = end
-        end+=1  
-     
+        end+=1
+
     elements_lst.append(formula[start:])
-    
+
     return elements_lst
 
 def split_at_digit(formula):
