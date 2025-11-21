@@ -1,4 +1,4 @@
-def split_before_each_uppercases():
+def split_before_each_uppercases(formula):
     start = 0
     end = 1
     elements_lst = []
