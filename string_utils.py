@@ -37,7 +37,7 @@ def count_atoms_in_molecule(molecular_formula):
 
 def parse_chemical_reaction(reaction_equation):
     """Takes a reaction equation (string) and returns reactants and products as lists. 
-    Example: 'H2 + O2 -> H2O' → (['H2', 'O2'], ['H2O'])"""
+    Example: 'H2 + O2 -> H2O' -> (['H2', 'O2'], ['H2O'])"""
     
     # הסרת כל הרווחים
     reaction_equation = reaction_equation.replace(" ", "")
@@ -52,14 +52,13 @@ def parse_chemical_reaction(reaction_equation):
 
 def count_atoms_in_reaction(molecules_list):
     """Takes a list of molecular formulas and returns a list of atom count dictionaries. 
-    Example: ['H2', 'O2'] → [{'H': 2}, {'O': 2}]"""
+    Example: ['H2', 'O2'] -> [{'H': 2}, {'O': 2}]"""
     
     molecules_atoms_count = []
     
     for molecule in molecules_list:
         molecules_atoms_count.append(count_atoms_in_molecule(molecule))
         
-    # **התיקון המדויק**
     # ה-return מוזח כעת נכונה (אותה הזחה כמו הלולאה for)
     return molecules_atoms_count
 
