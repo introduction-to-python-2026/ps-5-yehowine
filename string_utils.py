@@ -59,7 +59,7 @@ def count_atoms_in_reaction(molecules_list):
     for molecule in molecules_list:
         molecules_atoms_count.append(count_atoms_in_molecule(molecule))
         
-    # **התיקון המדויק:** ה-return מוזח בצורה נכונה תחת הפונקציה (מחוץ ללולאה)
+    # ה-return מוזח כעת נכונה (אותה הזחה כמו הלולאה for)
     return molecules_atoms_count
   
 
