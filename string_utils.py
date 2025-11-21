@@ -61,5 +61,4 @@ def count_atoms_in_reaction(molecules_list):
         
     # ה-return מוזח כעת נכונה (אותה הזחה כמו הלולאה for)
     return molecules_atoms_count
-
  
