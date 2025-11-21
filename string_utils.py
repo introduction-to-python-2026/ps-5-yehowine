@@ -6,7 +6,7 @@ def split_before_each_uppercases(formula):
     if not formula:
         return elements_lst
 
-     while end < len(formula):
+    while end < len(formula):
         if formula[end].isupper():
             elements_lst.append(formula[start:end])
             start = end
@@ -14,7 +14,7 @@ def split_before_each_uppercases(formula):
 
     elements_lst.append(formula[start:])
 
-    return elements_lst
+     return elements_lst
 
 def split_at_digit(formula):
     for char_index, char in enumerate(formula):
