@@ -1,4 +1,3 @@
-# flake8: noqa
 def split_before_uppercases(formula):
     start = 0
     end = 1
