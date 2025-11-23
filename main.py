@@ -1,4 +1,4 @@
-import string_utils as su, equation_utiks as eu# Add the import statements for functions from string_utils.py and equation_utils.py here
+import string_utils as su, equation_utils as eu# Add the import statements for functions from string_utils.py and equation_utils.py here
 
 
 def balance_reaction(reaction): #"Fe2O3 + H2 -> Fe + H2O"
