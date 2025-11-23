@@ -1,5 +1,4 @@
-import string_utils as su, equation_utils as eu# Add the import statements for functions from string_utils.py and equation_utils.py here
-
+import string_utils as su, equation_utils as eu
 
 def balance_reaction(reaction): #"Fe2O3 + H2 -> Fe + H2O"
 
@@ -13,4 +12,5 @@ def balance_reaction(reaction): #"Fe2O3 + H2 -> Fe + H2O"
     coefficients = eu.my_solve(equations, coefficients) + [1]
 
     return coefficients # [1/3, 1, 2/3, 1]
+
 
